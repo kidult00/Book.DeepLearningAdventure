@@ -1,0 +1,12 @@
+{
+    "plugins": [
+        "disqus",
+        "mathjax",
+        "summary"
+    ],
+    "pluginsConfig": {
+    	"disqus":{
+        	"shortName": "DeepLearningAdventure"
+    	}
+    }
+}
