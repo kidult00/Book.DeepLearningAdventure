@@ -2,7 +2,7 @@
 
 * 神经网络
 	* [机器学习和深度学习](NeuroNetwork/1-ML_DL_Basic.md)
-	* [语言模型和 N-gram](NeuroNetwork/2-ConceptOfNeuralNetwork.md)
+	* [初识神经网络](NeuroNetwork/2-ConceptOfNeuralNetwork.md)
 * Numpy 基础
 	* []()
 	* []()

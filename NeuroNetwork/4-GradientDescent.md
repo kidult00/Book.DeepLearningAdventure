@@ -55,6 +55,42 @@ del_w = [ learnrate * error_term * x[0],
 # or del_w = learnrate * error_term * x
 ```
 
+### Stochastic Gradient Descent
+
+Compute the average loss for a very small random fraction of the training data. SGD scales well both data and model size.
+
+for SGD
+
+- inputs: mean = 0, small equal variance
+- initial weights: random, mean = 0, small equal variance
+
+如何改善 SGD 效果
+
+- Momentum
+  We can take advantage of the knowledge that we've accumulated from previous steps about where we should be headed.
+  ![](http://7xjpra.com1.z0.glb.clouddn.com/Momentum.png)
+- Learning Rate Decay
+  take smaller, noisier steps towards objective. make that step smaller and smaller as you train.
+  ![](http://7xjpra.com1.z0.glb.clouddn.com/Learning%20Rate%20Decay.png)
+- ADAGRAD
+
+### Mini-batching
+
+小批量对数据集的子集进行训练，而不是一次对所有数据进行训练。这让我们即使在缺乏存储整个数据集的内存时也可以训练。它跟 SGD 结合的效果更好。
+
+在每个 epoch 的开始 shuffle 数据，然后创建小批量。对于每个小批量使用梯度下降来训练网络权重。由于这些批次是随机的，因此每个批次都执行SGD。
+
+```python
+# Features and Labels
+features = tf.placeholder(tf.float32, [None, n_input])
+labels = tf.placeholder(tf.float32, [None, n_classes])
+```
+None 是 batch size 的 placeholder
+
+### Epochs
+
+epoch 是整个数据集的一个向前和向后传递，用于增加模型的准确性而不需要更多的数据。
+
 - [Gradient Descent with Squared Errors](https://classroom.udacity.com/nanodegrees/nd101-cn/parts/ba124b66-b7f7-43ab-bc89-a390adb57f92/modules/2afd43e6-f4ce-4849-bde6-49d7164da71b/lessons/dc37fa92-75fd-4d41-b23e-9659dde80866/concepts/7d480208-0453-4457-97c3-56c720c23a89)
 - [Gradient (video) | Khan Academy](https://www.khanacademy.org/math/multivariable-calculus/multivariable-derivatives/gradient-and-directional-derivatives/v/gradient)
 - [An overview of gradient descent optimization algorithms](http://ruder.io/optimizing-gradient-descent/index.html#momentum)
