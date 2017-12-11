@@ -72,3 +72,4 @@ lb.transform(labels)
            [1, 0, 0, 0, 0],
            [0, 0, 1, 0, 0]])
 ```
+![](https://ds055uzetaobb.cloudfront.net/image_optimizer/f4d9e46eb17e36de5fad8796f68908ae5f000ce0.png)
