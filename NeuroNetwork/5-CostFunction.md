@@ -1,4 +1,13 @@
-# Cost function 损失函数
+# DL笔记：Cost function 损失函数
+
+回顾:
+
+- [DL笔记：机器学习和深度学习的区别](http://www.uegeek.com/171206DLNote1-ML-DL-Basic.html)
+- [DL笔记：Neural Networks 神经网络](http://www.uegeek.com/171209DLN2-NeuralNetworks.html)
+- [DL笔记：Linear regression 线性回归](http://www.uegeek.com/171213DLN3-LinearRegression.html)
+- [DL笔记：Activation Function 激活函数](http://www.uegeek.com/171218DLN4-ActivationFunction.html)
+
+![](http://7xjpra.com1.z0.glb.clouddn.com/Art_Code_Bro.png)
 
 ``阿扣``：阿特，还记得训练神经网络的目标其实是什么吗？
 
@@ -11,6 +20,8 @@
 ``阿扣``：我们会找一个度量标准。一个常见的度量方法是计算误差的平方和（SSE, sum of the squared errors）：
 
 $$ E=\frac{1}{2}\sum_\mu\sum_j[y^\mu_j - f(\sum_i w_{ij}x^\mu_i)]^2 $$
+
+![](http://7xjpra.com1.z0.glb.clouddn.com/latex_9521ee448af952b9e073b5d31974241c.png)
 
 ``阿特``：你……欺负人 >.<
 

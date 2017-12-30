@@ -1,6 +1,8 @@
 # 梯度下降 Gradient Descent
 
-``阿扣``：上一次我们了解了损失函数。为了找到使得损失函数（比如用 SSE 计算误差）最小的 w (权重) 和 b (偏置项)，我们需要先了解一个重要的方法：梯度下降。
+![](http://7xjpra.com1.z0.glb.clouddn.com/Art_Code_Bro.png)
+
+``阿扣``：上一次我们了解了[损失函数]()。为了找到使损失函数（比如用 SSE 计算）最小的 w (权重) 和 b (偏置项)，我们需要先了解一个重要的方法：梯度下降。
 
 ``阿特``：听起来像坐滑滑梯~
 
@@ -12,7 +14,7 @@
 
 via [Neural networks and deep learning - chapter 1](http://neuralnetworksanddeeplearning.com/chap1.html)
 
-然后我们根据这些微小的变化，跟目标值对比，看看误差是变大还是变小了，然后不断调整权重的值，最终找到最合适的 w 和 b。
+然后拿这些微小的变化，跟目标值对比，看看误差是变大还是变小了，然后不断调整权重值，最终找到最合适的 w 和 b。
 
 ``阿特``：那要怎么找到这些值呢？
 
@@ -54,9 +56,13 @@ via [Neural networks and deep learning - chapter 1](http://neuralnetworksanddeep
 
 来，跟我念一遍：求梯度 = 求变化率 = 求导数
 
-``阿特``：求梯度 = 求变化率 = 求导数
+``阿特``：求梯度 = 求变化率 = 求导数 （假装自己听懂了）
 
-``阿扣``：了解了「梯度」，然后我们来看看「下降」又是怎么回事。切线代表函数在某个点的变化率。在上面这个图中，x = 2 位置上的切线，斜率是 > 1 的。说明如果继续往 x = 2 的右边滑去，在曲线上的值就会变大。比如当 x = 3 时，y = 9。但是我们想要到曲线最低的地方去，因为那里可以让误差（也就是 cost ）最小。所以，应该沿着梯度「相反」的方向滑动，也就朝着是 x = 2 的左边滑去。这就是「下降」的含义。
+``阿扣``：了解了「梯度」，然后我们来看看「下降」又是怎么回事。
+
+切线代表函数在某个点的变化率。在上面这个图中，x = 2 位置上的切线，斜率是 > 1 的。说明如果继续往 x = 2 的右边滑去，在曲线上的值就会变大。比如当 x = 3 时，y = 9。
+
+但是我们想要到曲线最低的地方去，因为那里可以让误差（也就是 cost ）最小。所以，应该沿着梯度「相反」的方向滑动，也就朝着是 x = 2 的左边滑去。这就是「下降」的含义。
 
 ``阿特``：沿着「上山」最快的反方向走，就能最快「下山」。啊原来这么直白……
 
@@ -66,17 +72,17 @@ via [Neural networks and deep learning - chapter 1](http://neuralnetworksanddeep
 
 [Linear Regression Answer - YouTube](https://www.youtube.com/watch?time_continue=194&v=L5QBqYDNJn0)
 
-``阿特``：好！最喜欢看视频了~
+``阿特``：这个视频不错，讲得挺清楚的~
 
-``阿扣``：我们来复习一下。用一个函数 f(h) 表示 x 和 y 的关系。x 和 y 其实是已知的，它们来自真实的数据集。我们要求的是 w 和 b，使得我们计算出来的 $\hat y$ 最接近实际的 y 值。为了得到某种类型的 y 值（比如只有 0 和 1 两种输出），我们会使用类似 Sigmoid 这样的激活函数，对 f(h) 做一下转换。
+``阿扣``：我们来复习一下。用一个函数 f(h) 表示 x 和 y 的关系。x 和 y 其实是已知的，它们来自真实的数据集。我们的目标是求出 w 和 b，使得计算出来的 $\hat y$ 最接近实际的 y 值。为了得到某种类型的 y 值（比如只有 0 和 1 两种输出），我们会使用类似 Sigmoid 这样的激活函数，对 f(h) 做一下转换。
 
 ![](http://7xjpra.com1.z0.glb.clouddn.com/simpleNN.png)
 
 ``阿特``：哦，我说怎么有点难理解呢。因为以前碰到 x 和 y，它们都是未知数，现在它们变成了已知数，真正的目标其实是求 w 和 b！
 
-``阿扣``：没错！这是深度学习算法中一个需要你调整的认知。
+``阿扣``：没错！这是深度学习算法中一个需要调整的认知。
 
-怎么得到 w 和 b 呢？用损失函数。如果损失函数的值大，说明模型预测得不准。可以让损失函数的值最小的 w 和 b，就是我们要求的。更具体说，我们要找到 w 的变化幅度 $\Delta w$，每次调整一小步，看看误差 E 是不是变小了。
+怎么得到 w 和 b 呢？用损失函数。如果损失函数的值大，说明模型预测得不准。我们要找到让损失函数的值最小的 w 和 b。更具体说，我们要找到 w 的变化幅度 $\Delta w$，每次调整一小步，看看误差 E 是不是变小了。
 
 ![](http://7xjpra.com1.z0.glb.clouddn.com/Gradient%20Descent-i3.png)
 
@@ -92,70 +98,29 @@ f'(h)=f(h)(1−f(h))
 \\
 \Delta w_{ij}=\eta*(y_j-\hat y_j)*f(h)*(1−f(h))*x_i $$
 
+**
 …… 咦？人呢？
 
 喂！别跑，还有好几个知识点没讲呢！……
 
-### 补充1：求多个变量的偏导数
+### 补充：求多个变量的偏导数
 
 如果只有一个未知数，求梯度只需要计算导数。如果有多个变量，求梯度就需要计算偏导数。偏导数其实并不复杂，只需要掌握链式求导法则，就能进行大部分的计算。
 
+$$ \frac{\partial}{\partial w} p(q(w)) = \frac{\partial p}{\partial q}\frac{\partial q}{\partial w} $$
+
 比如，损失函数 C
 
-$$ C = \sum(wx + b - y)^2 = \sum((wx + b)^2 + y^2 - 2y(wx + b))
-
-\\ = \sum(x^2w^2 + b^2 + 2xwb + y^2 - 2xyw - 2yb) $$
+$$ C = \sum(wx + b - y)^2 = \sum((wx + b)^2 + y^2 - 2y(wx + b)) = \sum(x^2w^2 + b^2 + 2xwb + y^2 - 2xyw - 2yb) $$
 
 对 w 求偏导
 
-$$ \frac{\partial C}{\partial w} = \frac{1}{N} \sum(wx + b - y)(x) $$
+$$ \frac{\partial C}{\partial w} = \frac{1}{N} \sum(wx + b - y)x $$
 
 对 b 求偏导
 
 $$ \frac{\partial C}{\partial b} = \frac{1}{N} \sum(wx + b - y) $$
 
-### 补充2：用 python 实现梯度下降的算法
-
-```python
-# Defining the sigmoid function for activations
-def sigmoid(x):
-    return 1 / (1 + np.exp(-x))
-
-# Derivative of the sigmoid function
-def sigmoid_prime(x):
-    return sigmoid(x) * (1 - sigmoid(x))
-
-# Input data
-x = np.array([0.1, 0.3])
-# Target
-y = 0.2
-# Input to output weights
-weights = np.array([-0.8, 0.5])
-
-# The learning rate, eta in the weight step equation
-learnrate = 0.5
-
-# the linear combination performed by the node (h in f(h) and f'(h))
-h = x[0] * weights[0] + x[1] * weights[1]
-# or h = np.dot(x, weights)
-
-# The neural network output (y-hat)
-nn_output = sigmoid(h)
-
-# output error (y - y-hat)
-error = y - nn_output
-
-# output gradient (f'(h))
-output_grad = sigmoid_prime(h)
-
-# error term (lowercase delta)
-error_term = error * output_grad
-
-# Gradient descent step
-del_w = [ learnrate * error_term * x[0],
-          learnrate * error_term * x[1]]
-# or del_w = learnrate * error_term * x
-```
 
 ### Ref
 - [Deep Learning Nanodegree | Udacity](https://www.udacity.com/course/deep-learning-nanodegree-foundation--nd101)
@@ -163,3 +128,11 @@ del_w = [ learnrate * error_term * x[0],
 - [Gradient Descent with Squared Errors](https://classroom.udacity.com/nanodegrees/nd101-cn/parts/ba124b66-b7f7-43ab-bc89-a390adb57f92/modules/2afd43e6-f4ce-4849-bde6-49d7164da71b/lessons/dc37fa92-75fd-4d41-b23e-9659dde80866/concepts/7d480208-0453-4457-97c3-56c720c23a89)
 - [Gradient (video) | Khan Academy](https://www.khanacademy.org/math/multivariable-calculus/multivariable-derivatives/gradient-and-directional-derivatives/v/gradient)
 - [An overview of gradient descent optimization algorithms](http://ruder.io/optimizing-gradient-descent/index.html#momentum)
+
+
+### 00 的 DeepLearning 笔记
+
+- [DL笔记：机器学习和深度学习的区别](http://www.uegeek.com/171206DLNote1-ML-DL-Basic.html)
+- [DL笔记：Neural Networks 神经网络](http://www.uegeek.com/171209DLN2-NeuralNetworks.html)
+- [DL笔记：Linear regression 线性回归](http://www.uegeek.com/171213DLN3-LinearRegression.html)
+- [DL笔记：Activation Function 激活函数](http://www.uegeek.com/171218DLN4-ActivationFunction.html)

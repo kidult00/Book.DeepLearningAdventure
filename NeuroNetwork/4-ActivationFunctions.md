@@ -1,10 +1,23 @@
-# 激活函数
+# DL笔记：Activation Function 激活函数
+
+回顾:
+
+- [DL笔记：机器学习和深度学习的区别](http://www.uegeek.com/171206DLNote1-ML-DL-Basic.html)
+- [DL笔记：Neural Networks 神经网络](http://www.uegeek.com/171209DLN2-NeuralNetworks.html)
+- [DL笔记：Linear regression 线性回归](http://www.uegeek.com/171213DLN3-LinearRegression.html)
+- [DL笔记：Activation Function 激活函数](http://www.uegeek.com/171218DLN4-ActivationFunction.html)
+
+![](http://7xjpra.com1.z0.glb.clouddn.com/Art_Code_Bro.png)
 
 ``阿扣``：阿特，今天我们来了解一下深度学习中的激活函数(Activation functions)。
 
 ``阿特``：又是函数……为什么要了解这个哦……
 
-``阿扣``：在机器学习中，我们经常需要对输出结果打上「是」或「否」标签。比如对一张输入的图片，模型要判断图片里面有没有包含汪星人。上一回我们提到的逻辑回归，可以用来减少预测值和真实值之间的误差。
+``阿扣``：在机器学习中，我们经常需要对输出结果打上「是」或「否」标签。比如对一张输入的图片，模型要判断图片里面有没有包含汪星人。
+
+![](http://7xjpra.com1.z0.glb.clouddn.com/Col.DL.dog_detect.png)
+
+[上一回我们提到的逻辑回归]()，可以用来减少预测值和真实值之间的误差。
 
 ``阿特``：那要怎么做呢？
 
@@ -34,7 +47,7 @@
 
 ``阿特``：也就是说，不论我给什么样的整数，最后都会返回 0 或 1 的结果？
 
-``阿扣``：没错！这样我们得到分类的结果，或 0 或 1。在深度学习中，这种**把输出转化为我们想要的形式的函数**，我们叫它「激活函数」，
+``阿扣``：没错！这样我们得到分类的结果，或 0 或 1。在深度学习中，这种**把输出转化为我们想要的形式的函数**，我们叫它「激活函数」：
 
 > 激活函数的主要作用是提供网络的非线性建模能力。如果没有激活函数，即便有再多的隐藏层，其整个网络跟单层神经网络也是等价的。加入激活函数之后，深度神经网络才具备了分层的非线性映射学习能力。
 

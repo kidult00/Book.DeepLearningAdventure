@@ -1,5 +1,9 @@
-- Scalars: 0 dimensional tensor
-- Vectors: 1 dimensional tensor
+### Data dimensions 数据维度
+
+按照维度，可以把数据分为几类：
+
+- Scalars: 0 维的单个数值，如 100，如 -0.3
+- Vectors: 1 维的一组数值，如 [1 2 3]
 
   行向量 $\begin{bmatrix}a \;b \;c   \end{bmatrix}$
 
@@ -9,28 +13,37 @@
       3      
     \end{bmatrix}$
 
-- Matrices: 2 dimensional tensor
-- Tensors: any n-dimensional collection of values
+- Matrices: 2 维的数值矩阵，比如下面这个 2行3列 的矩阵
+
+  $\begin{bmatrix}
+      1 \;2 \; 3 \\
+      4 \;5 \; 6 \\      
+    \end{bmatrix}$
+
+- Tensors: 任意维度 （Scalars 是 0 维 Tensor，Vectors 是 1 维的 Tensor，Matrices 是 2 维的 Tensor）
 
 
-Element-wise operations: treat items in the matrix individually and perform the same operation on each one
+### 矩阵点乘
 
-矩阵点乘 [Dot product](https://www.wikiwand.com/en/Dot_product)
+Element-wise operations 对矩阵内的每一个元素都执行运算。比如点乘 [Dot product](https://www.wikiwand.com/en/Dot_product)。
 
-Important Reminders About Matrix Multiplication
-- The number of columns in the left matrix must equal the number of rows in the right matrix.
-- The answer matrix always has the same number of rows as the left matrix and the same number of columns as the right matrix.
-- Order matters. Multiplying A•B is not the same as multiplying B•A.
-- Data in the left matrix should be arranged as rows, while data in the right matrix should be arranged as columns.
+![](http://7xjpra.com1.z0.glb.clouddn.com/IMG.Math.dot_product.png)
 
-![](http://7xjpra.com1.z0.glb.clouddn.com/dotProduct1.png)
+矩阵乘法的要点：
+
+- 左边矩阵的列数，必需与右边矩阵的行数相同
+- 结果矩阵的行数与左边矩阵相同，列数与右边矩阵相同
+- 相乘顺序会影响结果，A•B ≠ B•A
+- **左边矩阵的数据应该按行组织，右边矩阵的数据应该按列组织**
 
 ![](http://7xjpra.com1.z0.glb.clouddn.com/Screen%20Shot%202017-11-26%20at%2010.34.17%20AM.png)
 
+如果数据都是按行排列的，就可以转置矩阵，结果不变。
+(via Udacity DLNG lession1-9. Matrix transposes)
 
-you can safely use a transpose in a matrix multiplication if the data in both of your original matrices is arranged as rows
-(udacity DLNG lession1-9. Matrix transposes)
+矩阵转置实际上是变换了矩阵的 view，而没有改变矩阵本身。
 
-consider the transpose just as a different view of your matrix, rather than a different matrix entirely.
+Ref
 
+- [Deep Learning Nanodegree | Udacity](https://www.udacity.com/course/deep-learning-nanodegree-foundation--nd101)
 - [LINEAR ALGEBRA - khanacademy](https://www.khanacademy.org/math/linear-algebra)
