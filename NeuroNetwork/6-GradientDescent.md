@@ -1,4 +1,4 @@
-# 梯度下降 Gradient Descent
+# DeepLearning笔记：Gradient Descent 梯度下降 
 
 ![](http://7xjpra.com1.z0.glb.clouddn.com/Art_Code_Bro.png)
 

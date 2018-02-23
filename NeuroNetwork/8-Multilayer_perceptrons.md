@@ -1,4 +1,4 @@
-# 多层神经网络
+# DeepLearning笔记：多节点神经网络
 
 ``阿扣``：上回我们在 python 里面实现了单个神经元的梯度下降算法。现在可以挑战一下多个神经元的网络了。
 
@@ -45,4 +45,13 @@
 
 ``阿特``：这跟上面那两个矩阵相乘的结果是一样的吗？
 
-``阿扣``：是的。按照矩阵点乘的公式 ($h_1=x_1w_{11} + x_2w{21}+x_3w{31}$) 把它们展开，会发现其实是一个东西。
+``阿扣``：是的。按照矩阵点乘的公式 ($h_1=x_1w_{11} + x_2w_{21}+x_3w_{31}$) 把它们展开，会发现其实是一个东西。
+
+### 00 的 DeepLearning 笔记
+
+- [DeepLearning笔记：机器学习和深度学习的区别](http://www.uegeek.com/171206DLNote1-ML-DL-Basic.html)
+- [DeepLearning笔记：Neural Networks 神经网络](http://www.uegeek.com/171209DLN2-NeuralNetworks.html)
+- [DeepLearning笔记：Linear regression 线性回归](http://www.uegeek.com/171213DLN3-LinearRegression.html)
+- [DeepLearning笔记：Activation Function 激活函数](http://www.uegeek.com/171218DLN4-ActivationFunction.html)
+- [DL笔记：用 python 实现梯度下降的算法](http://www.uegeek.com/171226DLN7-GradientDescentinPython.html)
+
